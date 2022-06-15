@@ -1,4 +1,4 @@
-.register {
+.signUp {
     width: 400px;
     background: #fff;
     border: 1px solid #dddfe2;
@@ -9,7 +9,7 @@
     text-align: center;
 }
 
-.register > input {
+.signUp > input {
     border-radius: 8px;
     border: 2px solid #dddfe2;
     outline: none;
@@ -20,7 +20,7 @@
     font-size: 1rem;
 }
 
-.register > .button {
+.signUp > .button {
     background: #1877f2;
     border: 1px solid #1877f2;
     color: #fff;

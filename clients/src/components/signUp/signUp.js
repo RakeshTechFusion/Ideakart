@@ -10,6 +10,7 @@ const signUp = () => {
     const [ user, setUser] = useState({
         name: "",
         email:"",
+        mobile:"",
         password:"",
         reEnterPassword: ""
     });
@@ -23,12 +24,12 @@ const signUp = () => {
     };
 
     const signUp = () => {
-        const { name, email, password, reEnterPassword } = user
-        if( name && email && password && (password === reEnterPassword)){
+        const { name, email,mobile, password, reEnterPassword } = user
+        if( name && email && mobile && password && (password === reEnterPassword)){
             axios.post("http://localhost:9002/signUp", user)
             .then( res => {
                 alert(res.data.message);
-                navigate.push("/login");
+                navigate.push("/signIn");
             });
         } else {
             alert("invlid input");
@@ -42,13 +43,14 @@ const signUp = () => {
             <h1>signUp</h1>
             <input type="text" name="name" value={user.name} placeholder="Your Name" onChange={ handleChange }></input>
             <input type="text" name="email" value={user.email} placeholder="Your Email" onChange={ handleChange }></input>
+            <input type="text" name="mobile" value={user.mobile} placeholder="Your mobile Number" onChange={ handleChange }></input>
             <input type="password" name="password" value={user.password} placeholder="Your Password" onChange={ handleChange }></input>
             <input type="password" name="reEnterPassword" value={user.reEnterPassword} placeholder="Re-enter Password" onChange={ handleChange }></input>
             <div className="button" onClick={signUp} >signUp</div>
             <div>or</div>
-            <div className="button" onClick={() =>navigate.push("/login")}>Login</div>
+            <div className="button" onClick={() =>navigate.push("/signIn")}>Login</div>
         </div>
     )
 }
 
-export default signUp
+export default signUp;

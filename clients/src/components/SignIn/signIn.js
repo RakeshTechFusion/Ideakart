@@ -36,7 +36,7 @@ const signIn = ({ setsignInUser}) => {
             <input type="password" name="password" value={user.password} onChange={handleChange}  placeholder="Enter your Password" ></input>
             <div className="button" onClick={signIn}>signIn</div>
             <div>or</div>
-            <div className="button" onClick={() =>navigate.push("/register")}>Register</div>
+            <div className="button" onClick={() =>navigate.push("/signUp")}>Register</div>
         </div>
     )
 }
