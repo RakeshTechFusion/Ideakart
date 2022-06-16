@@ -5,6 +5,9 @@
     background-image: url(https://ideakart.com/assets/youridea-23d18c0fab7feb4d66e4c1dbc419428c71b2014ff742fc52b4006f6b65af6b67.jpg);
     background-repeat: no-repeat;
 }
+.container2 p{
+    text-align: center;
+}
 .top{
     margin: auto;
 }
