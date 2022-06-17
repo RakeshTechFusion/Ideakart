@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Contactpage = ()=>{
     const navigate = useNavigate();
 const handleSubmit = ()=>{
-    alert("Your details are captured, we will get back to you shortly")
+    alert("Thank You! Your form has been submitted.")
     navigate("/")
 }
 
@@ -56,8 +56,8 @@ const handleSubmit = ()=>{
                     <p>Message*</p>
                     <textarea className='msg2' type='text'
                   
-                    >Message</textarea>
-                    <button style={{backgroundColor: 'green', color: 'white', padding: '10px', borderRadius: '5px', marginTop: '10px' }} type='submit'>Send message</button>
+                    ></textarea>
+                    <button style={{backgroundColor: '#5cb85c', color: 'white', padding: '10px', borderRadius: '5px', marginTop: '10px' }} type='submit'>Send message</button>
                 </div>
             
             </form>

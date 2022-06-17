@@ -4,9 +4,12 @@
     /* border: 1px solid red; */
     background-image: url(https://ideakart.com/assets/youridea-23d18c0fab7feb4d66e4c1dbc419428c71b2014ff742fc52b4006f6b65af6b67.jpg);
     background-repeat: no-repeat;
+    padding-top: 100px;
 }
 .container2 p{
     text-align: center;
+    font-size: 13px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .top{
     margin: auto;
@@ -24,6 +27,10 @@
     /* margin-left: 10px; */
     /* margin-right: 10px; */
     text-align: center;
+    padding-top: 40px;
+}
+.line1 p{
+    font-weight: bold;
 }
 
 .line2 {
@@ -33,6 +40,9 @@
     margin-left: 10px;
     margin-right: 10px;
     text-align: center;
+}
+.line2 p{
+    font-weight: bold;
 }
 
 .input_box {
@@ -48,13 +58,20 @@
     margin: auto;
     text-align: center;
 }
+.msg1 p{
+    font-weight: bold;
+}
 
 .msg2 {
-    width: 73pc;
+    width: 72pc;
+    height: 90px;
 }
 
 .butt{
     padding: 5px;
-    background-color: green;
+    background-color: #5cb85c;
     border-radius: 4px;
+}
+.form {
+    margin-top: 100px;
 }
