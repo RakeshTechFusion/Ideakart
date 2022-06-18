@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+}
+#inner-container-checkout {
+  width: 70%;
+  margin: auto;
+  margin-top: 120px;
+}
+#inner-container-checkout > div {
+  margin-bottom: 40px;
+}
+.box {
+  background-color: #f7f6f7;
+  padding: 20px;
+  font-size: 17px;
+  color: #383d46;
+  /* border-radius: 30px; */
+}
+.createAc {
+  text-decoration: none;
+  color: #383d46;
+  font-size: large;
+  font-weight: bold;
+}
+.createAc:hover {
+  color: #2874f0;
+}
+sup {
+  color: red;
+}
+#checkout_form {
+  /* padding-top: 25px; */
+  padding-bottom: 25px;
+  width: 70%;
+  margin: auto;
+  /* border-radius: 50px; */
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.inner {
+  /* margin-right: 15px; */
+}
+.inner > label {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+label {
+    margin-bottom: 10px;
+}
+select {
+  padding: 18px;
+  /* border-radius: 30px; */
+  color: #383d46;
+  width: 15%;
+  font-size: 17px;
+}
+option {
+  font-weight: 200;
+  text-align: left;
+}
+label {
+  font-size: 18px;
+  font-weight: bold;
+  color: grey;
+}
+#myForm > div {
+  margin-bottom: 30px;
+}
+#container1 {
+  margin-top: 50px;
+  display: flex;
+  background-color: #282834;
+  height: 500px;
+  justify-content: space-around;
+  font-family: "Fira Sans", serif;
+}
+.Chkbtn {
+  width: 285px;
+  height: 57px;
+  background-color: #2874f0;
+  /* border-radius: 30px; */
+  border: 0px;
+  font-weight: bold;
+  font-family: "Fira Sans", sans-serif;
+  font-size: 18px;
+  color: white;
+  margin-top: 30px;
+  cursor: pointer;
+}
+.Chkbtn:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  transition: all 0.5s ease;
+}
+
+#container1 > div {
+  margin-top: 70px;
+  width: 200px;
+  justify-content: center;
+}
+
+#desc {
+  color: white;
+  cursor: pointer;
+  width: 120px;
+}
+#dispicon {
+  color: #8ec038;
+  cursor: pointer;
+  font-size: 12px;
+}
+#dispicon1 {
+  font-size: 10px;
+}
+#dispicon1:hover {
+  color: #8ec038;
+}
+
+#text {
+  color: #ffffffa6;
+  font-family: "Open sans", sans-serif;
+  font-size: 14px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  text-align: left;
+}
+#imgtrio {
+  width: 150px;
+  display: flex;
+  justify-content: space-around;
+}
+#imgtrio > i {
+  font-size: 25px;
+  color: #8ec038;
+}

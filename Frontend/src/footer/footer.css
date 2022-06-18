@@ -1,0 +1,29 @@
+.footer {
+  display: flex;
+  background-color: lemonchiffon;
+  color: black;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.footer > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer > div > a {
+  text-decoration: none;
+  color: #2874f0;
+  font-size: 15px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.footer > div > a:hover {
+    color: navy;
+}
