@@ -34,25 +34,27 @@ export const cartdata = (payload) => ({
 
 // ----------------network calls -------------------------------------//
 export const fetchdata = () => async (dispatch) => {
-  let res = await axios.get("http://localhost:8080/products/get");
+  let res = await axios.get("https://ideakart.herokuapp.com/products/get");
   dispatch(getdata(res.data));
 };
 
 export const fetchdes = (payload) => async (dispatch) => {
-  let res = await axios.get(`http://localhost:8080/products/get/${payload}`);
+  let res = await axios.get(
+    `https://ideakart.herokuapp.com/products/get/${payload}`
+  );
   dispatch(desdata(res.data));
 };
 
 export const fetchfilter = (payload) => async (dispatch) => {
   let res = await axios.get(
-    `http://localhost:8080/products/get/category/${payload}`
+    `https://ideakart.herokuapp.com/products/get/category/${payload}`
   );
   dispatch(filterdata(res.data));
 };
 
 export const incordec = (payload, count) => async (dispatch) => {
   let res = await axios.patch(
-    `http://localhost:8080/products/patch/qty?id=${payload}`,
+    `https://ideakart.herokuapp.com/products/patch/qty?id=${payload}`,
     {
       count: count,
     }
@@ -61,26 +63,31 @@ export const incordec = (payload, count) => async (dispatch) => {
 };
 
 export const fetchcart = () => async (dispatch) => {
-  let res = await axios.get("http://localhost:8080/cart/get");
+  let res = await axios.get("https://ideakart.herokuapp.com/cart/get");
   console.log(res.data);
   dispatch(cartdata(res.data));
 };
 
 export const AddToCart = (payload) => async (dispatch) => {
-  let res = await axios.post(`http://localhost:8080/cart/post`, payload);
+  let res = await axios.post(
+    `https://ideakart.herokuapp.com/cart/post`,
+    payload
+  );
   console.log(res);
   dispatch(fetchcart());
 };
 
 export const deletecart = (payload) => async (dispatch) => {
-  let res = await axios.delete(`http://localhost:8080/cart/delete/${payload}`);
+  let res = await axios.delete(
+    `https://ideakart.herokuapp.com/cart/delete/${payload}`
+  );
   console.log(res);
   dispatch(fetchcart());
 };
 
 export const cartqty = (payload, count) => async (dispatch) => {
   let res = await axios.patch(
-    `http://localhost:8080/cart/patch/qty?id=${payload}`,
+    `https://ideakart.herokuapp.com/cart/patch/qty?id=${payload}`,
     {
       count: count,
     }

@@ -3,7 +3,7 @@ const cors = require("cors");
 const cartRouter = require("./routes/CartRoutes");
 const productRouter = require("./routes/ProdRoutes");
 const userRouter = require("./routes/auth");
-const connection = require("./storage/db");
+const connection = require("./Storage/db");
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));

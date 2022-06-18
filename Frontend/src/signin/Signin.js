@@ -24,13 +24,15 @@ const Signin = () => {
 
   const Signin = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:8080/user/login", user).then((res) => {
-      alert(res.data.message);
-      console.log(res.data.validUser[0].name);
-      dispatch(changeUserName(res.data.validUser[0].name));
-      // setsignInUser(res.data.user);
-      navigate("/");
-    });
+    axios
+      .post("https://ideakart.herokuapp.com/user/login", user)
+      .then((res) => {
+        alert(res.data.message);
+        console.log(res.data.validUser[0].name);
+        dispatch(changeUserName(res.data.validUser[0].name));
+        // setsignInUser(res.data.user);
+        navigate("/");
+      });
   };
 
   return (

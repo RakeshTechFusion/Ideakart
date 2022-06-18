@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./signUp.css";
 import axios from "axios";
-// import { useNavigate  } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-  // const navigate = useNavigate ();
+  const navigate = useNavigate();
 
   const [user, setUser] = useState({
     name: "",
@@ -25,10 +25,12 @@ const Signup = () => {
   const Signup = () => {
     const { name, email, mobile, password, reEnterPassword } = user;
     if (name && email && mobile && password && password === reEnterPassword) {
-      axios.post("http://localhost:8080/user/signup", user).then((res) => {
-        alert(res.data.message);
-        // navigate.push("/signIn");
-      });
+      axios
+        .post("https://ideakart.herokuapp.com/user/signup", user)
+        .then((res) => {
+          alert(res.data.message);
+          navigate("/user/login");
+        });
     } else {
       alert("invlid input");
     }
