@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+}
+#background {
+  width: 100%;
+  margin: auto;
+  height: 355px;
+  position: relative;
+  background-image: url("https://www.fitmeals.co.in/wp-content/uploads/2018/02/inner-page.jpg");
+  margin-top: 150px;
+  /* filter: blur(2px);
+    -webkit-filter: blur(2px); */
+  /* border: 1px solid red; */
+}
+.arfeen_class {
+  /* border-radius: 15px; */
+  width: 100%;
+  font-size: 20px;
+  padding: 5px;
+  text-align: center;
+  border: 2px solid black;
+  margin: auto;
+}
+.img_over {
+  font-size: 48px;
+  text-align: center;
+  color: #2874f0;
+}
+.bhushan_button {
+  width: 150px;
+  font-size: 18px;
+  padding: 10px;
+  /* border-radius: 15px; */
+  background-color: #2874f0;
+  color: white;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: bold;
+  margin: auto;
+  margin-top: 30px;
+  border: none;
+  cursor: pointer;
+}
+.bhushan_button:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+}
+.bhushan_button1:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+}
+
+.bhushan_button1 {
+  font-size: 18px;
+  /* border-radius: 15px; */
+  background-color: #2874f0;
+  color: white;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}

@@ -1,0 +1,137 @@
+.descontainer {
+  position: relative;
+  width: 80%;
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
+  gap: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.descleft {
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.poster {
+  padding: 10px;
+  height: 100%;
+  margin-top: 70px;
+  box-sizing: border-box;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+.poster > img {
+  height: fit-content;
+  box-sizing: border-box;
+}
+
+.destitle {
+  font-family: "PT Sans";
+  font-weight: 700;
+  color: #222;
+  font-size: 2.34em;
+  letter-spacing: 0.05em;
+  line-height: 1.02;
+  text-align: center;
+}
+
+.des {
+  color: #222;
+  font-family: PT Sans, sans-serif;
+  font-size: 1.3em;
+  letter-spacing: 0.02em;
+  line-height: 1.45;
+  font-weight: 400;
+  text-align: justify;
+}
+
+.desprice1 {
+  font-size: 28px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+.addcartbtn {
+  cursor: pointer;
+  border: none;
+  border: 2px solid gray;
+  background-color: white;
+  padding: 15px;
+  margin: 0 auto;
+  width: 100%;
+  font-size: large;
+}
+
+.addcartbtn:hover {
+  color: white;
+  background-color: #2874f0;
+  border: 2px solid black;
+}
+
+/* modal */
+body.active-modal {
+  overflow-y: hidden;
+}
+
+.btn-modal {
+  padding: 10px 20px;
+  display: block;
+  margin: 100px auto 0;
+  font-size: 18px;
+}
+
+.modal,
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.overlay {
+  background: rgba(49, 49, 49, 0.8);
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #f1f1f1;
+  padding: 14px 28px;
+  border-radius: 3px;
+  max-width: 600px;
+  min-width: 330px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.modal-content > h2 {
+  color: #2874f0;
+  border-right: 0.1px solid grey;
+  padding-right: 20px;
+}
+
+.close-modal {
+  top: 10px;
+  right: 10px;
+  padding: 5px 0px 5px 20px;
+  border: none;
+  color: red;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
