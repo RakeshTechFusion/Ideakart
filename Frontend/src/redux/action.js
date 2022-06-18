@@ -3,6 +3,14 @@ export const GETDATA = "GETDATA";
 export const DESDATA = "DESDATA";
 export const FILTER = "FILTER";
 export const CARTDATA = "CARTDATA";
+export const CHANGE_USERNAME = "CHANGE_USERNAME";
+
+export const changeUserName = (name) => {
+  return {
+    type: "CHANGE_USERNAME",
+    payload: name,
+  };
+};
 
 export const getdata = (payload) => ({
   type: GETDATA,

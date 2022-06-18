@@ -1,0 +1,79 @@
+import React from "react";
+import "./Contactpage.css";
+// import {DB} from './firebase';
+import { useNavigate } from "react-router-dom";
+const Contactpage = () => {
+  const navigate = useNavigate();
+  const handleSubmit = () => {
+    alert("Thank You! Your form has been submitted.");
+    navigate("/");
+  };
+
+  return (
+    <form className="container2" onSubmit={handleSubmit}>
+      <p style={{ margin: "auto" }}>
+        You can contact our team by filling this form -
+      </p>
+
+      <div className="boxcontact">
+        <div className="line1">
+          <p>Firstname*</p>
+          <input
+            className="input_box"
+            type="text"
+            placeholder="Please enter your firstname*"
+          />
+        </div>
+        <div className="line1">
+          <p>Lastname*</p>
+          <input
+            className="input_box"
+            type="text"
+            placeholder="Please enter your lastname*"
+          />
+        </div>
+      </div>
+
+      <div className="boxcontact">
+        <div className="line2">
+          <p>Email*</p>
+          <input
+            className="input_box"
+            type="email"
+            placeholder="Please enter your email*"
+          />
+        </div>
+        <div className="line2">
+          <p>Phone*</p>
+          <input
+            className="input_box"
+            type="Number"
+            placeholder="Please enter your phone*"
+          />
+        </div>
+      </div>
+
+      <div className="msg1">
+        <p>Message*</p>
+        <textarea className="msg2" type="text"></textarea>
+        <button
+          style={{
+            backgroundColor: "#2874f0",
+            color: "white",
+            padding: "10px",
+            // borderRadius: "5px",
+            margin: "auto",
+            marginTop: "20px",
+            width: "10%",
+            cursor: "pointer",
+          }}
+          type="submit"
+        >
+          Send message
+        </button>
+      </div>
+    </form>
+  );
+};
+
+export default Contactpage;
