@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 // import About from './page/about/About';
 import React from 'react';
 import Contactpage from './page/contact/Contactpage';
-// import {Footer} from './components/Footer'
+
 
 function App() {
   return (
