@@ -1,38 +1,65 @@
-const router = require("express").Router();
-const { User } = require("../models/user");
-const bcrypt = require("bcrypt");
-const Joi = require("joi");
+const { Router } = require("express");
+const users = require("../model/user");
+require("dotenv").config()
+const userRouter = Router();
+const jwt = require("jsonwebtoken");
 
-router.post("/Signup", async (req, res) => {
-	try {
-		const { error } = validate(req.body);
-		if (error)
-			return res.status(400).send({ message: error.details[0].message });
-
-		const user = await User.findOne({ email: req.body.email });
-		if (!user)
-			return res.status(401).send({ message: "Invalid Email or Password" });
-
-		const validPassword = await bcrypt.compare(
-			req.body.password,
-			user.password
-		);
-		if (!validPassword)
-			return res.status(401).send({ message: "Invalid Email or Password" });
-
-		const token = user.generateAuthToken();
-		res.status(200).send({ data: token, message: "logged in successfully" });
-	} catch (error) {
-		res.status(500).send({ message: "Internal Server Error" });
-	}
+userRouter.post("/signup", async (req, res) => {
+  const { name, mobile, email, password } = req.body;
+  if (!name || !mobile || !email || !password) {
+    return res.status(422).json({ error: "fill every details" });
+  }
+  try {
+    const userExist = await users.findOne({ email: email });
+    if (userExist) {
+      return res.status(422).json({ error: "email already exists" });
+    } else {
+      const user = new users({ name, mobile, email, password, token: "" });
+      await user.save();
+      res.status(201).json({ message: "Registered successfully", user: user });
+    }
+  } catch (err) {
+    console.log(err);
+  }
 });
 
-const validate = (data) => {
-	const schema = Joi.object({
-		email: Joi.string().email().required().label("Email"),
-		password: Joi.string().required().label("Password"),
-	});
-	return schema.validate(data);
-};
+userRouter.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+  const validUser = await users.find({ $and: [{ email }, { password }] });
 
-module.exports = router;
+  if (validUser.length > 0) {
+    const token = jwt.sign(
+      {
+        name: users.name,
+        mobile: users.mobile,
+        email: users.email,
+        password: users.password,
+      },
+      process.env.SECRET_KEY
+    );
+    await users.findOneAndUpdate({ email: req.body.email }, { token: token });
+    return res
+      .status(201)
+      .send({ message: "Login Sucess", token: token, validUser });
+  }
+  return res.status(401).send({ message: "Invalid User" });
+});
+
+userRouter.post("/logout", async (req, res) => {
+  try {
+    const { token } = req.headers;
+    const user = await users.findOne({ token: token });
+    console.log("user:", user);
+    if (user) {
+      user.token = "";
+      await user.save();
+      res.status(200).json({ message: "logout successfully" });
+    } else {
+      res.status(400).json({ error: "invalid token" });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+module.exports = userRouter;
