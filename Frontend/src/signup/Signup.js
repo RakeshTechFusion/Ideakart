@@ -3,85 +3,84 @@ import "./signUp.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const Signup = () => {
+// user have to enter name, mobile, email, password, confirm password
+
+const SignUp = () => {
+  const [name, setName] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
 
-  const [user, setUser] = useState({
-    name: "",
-    email: "",
-    mobile: "",
-    password: "",
-    reEnterPassword: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUser({
-      ...user,
-      [name]: value,
-    });
-  };
-
-  const Signup = () => {
-    const { name, email, mobile, password, reEnterPassword } = user;
-    if (name && email && mobile && password && password === reEnterPassword) {
-      axios
-        .post("https://ideakart.herokuapp.com/user/signup", user)
-        .then((res) => {
-          alert(res.data.message);
-          navigate("/user/login");
-        });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (password === confirmPassword) {
+      const user = {
+        name,
+        mobile,
+        email,
+        password,
+      };
+      try {
+        const res = await axios.post("https://ideakart.herokuapp.com/user/signup", user);
+        console.log(res);
+        if (res.status === 201) {
+          navigate("/login");
+        }
+      } catch (err) {
+        console.log(err);
+      }
     } else {
-      alert("invlid input");
+      alert("password not matched");
     }
   };
 
   return (
-    <div className="signUp">
-      {console.log("User", user)}
-      <h1>Sign up</h1>
-      <input
-        type="text"
-        name="name"
-        value={user.name}
-        placeholder="Your Name"
-        onChange={handleChange}
-      ></input>
-      <input
-        type="text"
-        name="email"
-        value={user.email}
-        placeholder="Your Email"
-        onChange={handleChange}
-      ></input>
-      <input
-        type="text"
-        name="mobile"
-        value={user.mobile}
-        placeholder="Your mobile Number"
-        onChange={handleChange}
-      ></input>
-      <input
-        type="password"
-        name="password"
-        value={user.password}
-        placeholder="Your Password"
-        onChange={handleChange}
-      ></input>
-      <input
-        type="password"
-        name="reEnterPassword"
-        value={user.reEnterPassword}
-        placeholder="Re-enter Password"
-        onChange={handleChange}
-      ></input>
-      <div className="button" onClick={Signup}>
-        Sign up
+    <div className="signup">
+      <div className="signup__container">
+        <h1 className="signup__heading">Sign Up</h1>
+        <form className="signup__form" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Name"
+            className="signup__input"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Mobile"
+            className="signup__input"
+            value={mobile}
+            onChange={(e) => setMobile(e.target.value)}
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            className="signup__input"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            className="signup__input"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            className="signup__input"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+          <button className="signup__button">Sign Up</button>
+        </form>
       </div>
-      {/* <div>or</div> */}
-      {/* <div className="gotosignin" onClick={() =>navigate.push("/signIn")}>Login</div> */}
     </div>
   );
-};
+}
 
-export default Signup;
+export default SignUp;

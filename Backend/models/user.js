@@ -18,9 +18,10 @@ const usersSchema = new Schema({
     type: String,
     required: true,
   },
-  token: {
+  confirmPassword: {
     type: String,
-  },
+    required: true,
+  }
 });
 
 const users = model("users", usersSchema);
